@@ -13,8 +13,9 @@ title: Home
 
 Every post here is tied to something real: an issue I picked up, a pull request I opened, a review comment that made me rewrite something. No tutorials copied from docs, no "10 things I learned" filler. If I didn't actually do it, it's not on here.
 
+- **[About OpenEverest](/TalesOfOpenEverest/about/)**: what the project actually is, the problem it solves, and what it's built with.
 - **[Blog](/TalesOfOpenEverest/blog/)**: the PRs, the reviews, the mistakes, in order.
-- **[Architecture](/TalesOfOpenEverest/architecture/)**: my own map of how OpenEverest is actually built, written as I understand each piece, not copied from the docs.
+- **[Architecture](/TalesOfOpenEverest/architecture/)**: my own map of how OpenEverest is actually built, with diagrams, written as I understand each piece, not copied from the docs.
 - **[Learning Go](/TalesOfOpenEverest/learning-go/)**: the Go concepts I had to actually understand to make a change, explained the way I wish someone had explained them to me.
 
 ## Why OpenEverest
