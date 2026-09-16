@@ -37,40 +37,40 @@ The part that took me the longest to actually get was this: OpenEverest doesn't 
       <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
     </marker>
   </defs>
-  <g font-family="Inter, sans-serif">
-    <rect x="255" y="15" width="170" height="55" rx="8" fill="#e5efe9" stroke="#1f5c4a" stroke-width="1.5"/>
+  <g font-family="Roboto, sans-serif">
+    <rect x="255" y="15" width="170" height="55" rx="8" fill="#E8F3FF" stroke="#0E5FB5" stroke-width="1.5"/>
     <text x="340" y="38" text-anchor="middle" font-size="13" font-weight="600">Instance</text>
     <text x="340" y="55" text-anchor="middle" font-size="10.5" class="muted">the database you asked for</text>
 
-    <rect x="255" y="105" width="170" height="55" rx="8" fill="none" stroke="#1f5c4a" stroke-width="1.5"/>
+    <rect x="255" y="105" width="170" height="55" rx="8" fill="none" stroke="#0E5FB5" stroke-width="1.5"/>
     <text x="340" y="128" text-anchor="middle" font-size="13" font-weight="600">Provider</text>
     <text x="340" y="145" text-anchor="middle" font-size="10.5" class="muted">which database engine runs it</text>
 
-    <rect x="30" y="195" width="150" height="55" rx="8" fill="none" stroke="#1f5c4a" stroke-width="1.5"/>
+    <rect x="30" y="195" width="150" height="55" rx="8" fill="none" stroke="#0E5FB5" stroke-width="1.5"/>
     <text x="105" y="218" text-anchor="middle" font-size="13" font-weight="600">Backup</text>
     <text x="105" y="235" text-anchor="middle" font-size="10.5" class="muted">one backup run</text>
 
-    <rect x="200" y="195" width="150" height="55" rx="8" fill="none" stroke="#1f5c4a" stroke-width="1.5"/>
+    <rect x="200" y="195" width="150" height="55" rx="8" fill="none" stroke="#0E5FB5" stroke-width="1.5"/>
     <text x="275" y="218" text-anchor="middle" font-size="13" font-weight="600">Restore</text>
     <text x="275" y="235" text-anchor="middle" font-size="10.5" class="muted">restoring from one</text>
 
-    <rect x="115" y="285" width="170" height="55" rx="8" fill="none" stroke="#1f5c4a" stroke-width="1.5"/>
+    <rect x="115" y="285" width="170" height="55" rx="8" fill="none" stroke="#0E5FB5" stroke-width="1.5"/>
     <text x="200" y="308" text-anchor="middle" font-size="13" font-weight="600">BackupStorage</text>
     <text x="200" y="325" text-anchor="middle" font-size="10.5" class="muted">where backups live, e.g. S3</text>
 
-    <rect x="380" y="195" width="150" height="55" rx="8" fill="none" stroke="#1f5c4a" stroke-width="1.5"/>
+    <rect x="380" y="195" width="150" height="55" rx="8" fill="none" stroke="#0E5FB5" stroke-width="1.5"/>
     <text x="455" y="218" text-anchor="middle" font-size="13" font-weight="600">MonitoringConfig</text>
     <text x="455" y="235" text-anchor="middle" font-size="10.5" class="muted">watches the instance</text>
 
-    <rect x="530" y="15" width="150" height="55" rx="8" fill="none" stroke="#1f5c4a" stroke-width="1.5"/>
+    <rect x="530" y="15" width="150" height="55" rx="8" fill="none" stroke="#0E5FB5" stroke-width="1.5"/>
     <text x="605" y="38" text-anchor="middle" font-size="13" font-weight="600">Plugin</text>
     <text x="605" y="55" text-anchor="middle" font-size="10.5" class="muted">an installable add-on</text>
 
-    <rect x="530" y="105" width="150" height="55" rx="8" fill="none" stroke="#1f5c4a" stroke-width="1.5"/>
+    <rect x="530" y="105" width="150" height="55" rx="8" fill="none" stroke="#0E5FB5" stroke-width="1.5"/>
     <text x="605" y="128" text-anchor="middle" font-size="13" font-weight="600">InstalledExtension</text>
     <text x="605" y="145" text-anchor="middle" font-size="10.5" class="muted">tracks install/upgrade of a Plugin or Provider</text>
   </g>
-  <g style="color:#1f5c4a" stroke="currentColor" stroke-width="1.4" fill="none">
+  <g style="color:#0E5FB5" stroke="currentColor" stroke-width="1.4" fill="none">
     <line x1="340" y1="70" x2="340" y2="105" marker-end="url(#arrow3)"/>
     <line x1="300" y1="160" x2="150" y2="195" marker-end="url(#arrow3)"/>
     <line x1="320" y1="160" x2="290" y2="195" marker-end="url(#arrow3)"/>

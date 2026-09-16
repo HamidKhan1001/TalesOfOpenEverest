@@ -1,27 +1,36 @@
+/* Palette and type lifted from OpenEverest's own MUI theme
+   (ui/packages/design/src/themes/{base,everest}) so this site
+   reads as a companion to the project, not a random blog. */
 :root {
-  --bg: #fbfaf8;
+  --bg: #ffffff;
   --bg-raised: #ffffff;
-  --text: #1c1b1a;
-  --text-muted: #5b5754;
-  --border: #e6e2dc;
-  --accent: #1f5c4a;
-  --accent-soft: #e5efe9;
-  --code-bg: #f1efe9;
-  --font-body: 'Source Serif 4', Georgia, serif;
-  --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --bg-sunken: #f0f1f4;
+  --text: #2c323e;
+  --text-muted: rgba(44, 50, 62, 0.72);
+  --border: rgba(44, 50, 62, 0.25);
+  --accent: #0e5fb5;
+  --accent-strong: #0b4a8c;
+  --accent-soft: #e8f3ff;
+  --success: #00745b;
+  --code-bg: #f0f1f4;
+  --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-ui: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #15140f;
-    --bg-raised: #1c1a16;
-    --text: #ece8e1;
-    --text-muted: #a39d92;
-    --border: #322f28;
-    --accent: #6bbf9f;
-    --accent-soft: #1e2c26;
-    --code-bg: #201e18;
+    --bg: #3a4151;
+    --bg-raised: #3a4151;
+    --bg-sunken: #2c323e;
+    --text: #fbfbfb;
+    --text-muted: rgba(251, 251, 251, 0.72);
+    --border: rgba(209, 213, 222, 0.25);
+    --accent: #62aeff;
+    --accent-strong: #1486ff;
+    --accent-soft: rgba(20, 134, 255, 0.14);
+    --success: #00a489;
+    --code-bg: #2c323e;
   }
 }
 
@@ -33,25 +42,24 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: var(--font-body);
-  font-size: 19px;
+  font-family: var(--font-ui);
+  font-size: 17px;
   line-height: 1.65;
 }
 
 .wrap {
-  max-width: 780px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
 a { color: var(--accent); text-decoration-thickness: 1px; }
-a:hover { text-decoration-color: currentColor; }
+a:hover { color: var(--accent-strong); }
 
 /* header */
 .site-header {
   border-bottom: 1px solid var(--border);
-  padding: 22px 0;
-  font-family: var(--font-ui);
+  padding: 20px 0;
 }
 .site-header .wrap {
   display: flex;
@@ -61,44 +69,57 @@ a:hover { text-decoration-color: currentColor; }
   gap: 12px;
 }
 .site-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 18px;
+  font-size: 17px;
   color: var(--text);
   text-decoration: none;
 }
+.site-title img { width: 24px; height: 24px; border-radius: 6px; }
 .site-title span { color: var(--accent); }
 .site-nav a {
   color: var(--text-muted);
   text-decoration: none;
-  font-size: 15px;
-  margin-left: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 22px;
 }
 .site-nav a:first-child { margin-left: 0; }
-.site-nav a:hover { color: var(--text); }
+.site-nav a:hover { color: var(--accent); }
 
 /* footer */
 .site-footer {
   border-top: 1px solid var(--border);
   margin-top: 80px;
   padding: 28px 0 50px;
-  font-family: var(--font-ui);
   font-size: 14px;
   color: var(--text-muted);
 }
-.footer-links a { margin-right: 16px; }
+.footer-links a { margin-right: 16px; color: var(--text-muted); }
+.footer-links a:hover { color: var(--accent); }
 
 /* page/content */
-.page { padding: 56px 0; }
+.page { padding: 52px 0; }
 
 h1, h2, h3 {
-  font-family: var(--font-ui);
+  font-family: var(--font-heading);
   font-weight: 600;
   line-height: 1.25;
   color: var(--text);
 }
-h1 { font-size: 2.1em; margin: 0 0 0.3em; }
-h2 { font-size: 1.4em; margin: 1.6em 0 0.6em; }
-h3 { font-size: 1.1em; margin: 1.4em 0 0.5em; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.85em; }
+h1 { font-size: 2em; margin: 0 0 0.3em; }
+h2 { font-size: 1.35em; margin: 1.6em 0 0.6em; }
+h3 {
+  margin: 1.4em 0 0.5em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.8em;
+  font-weight: 700;
+}
 
 p { margin: 0 0 1.1em; }
 
@@ -135,15 +156,29 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2.5em 0; }
 
 img, svg { max-width: 100%; height: auto; }
 
+/* buttons/links used as ctas, matching OpenEverest's pill buttons */
+.btn {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 14px;
+  padding: 9px 18px;
+  border-radius: 128px;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+}
+.btn:hover { background: var(--accent-soft); color: var(--accent-strong); }
+
 /* home */
 .hero { margin-bottom: 3em; }
 .hero .kicker {
-  font-family: var(--font-ui);
+  font-family: var(--font-heading);
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  font-size: 13px;
+  font-size: 12px;
   color: var(--accent);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 /* post list */
@@ -154,18 +189,16 @@ img, svg { max-width: 100%; height: auto; }
 }
 .post-list li:first-child { padding-top: 0; }
 .post-list-date {
-  font-family: var(--font-ui);
   font-size: 13px;
   color: var(--text-muted);
   display: block;
   margin-bottom: 4px;
 }
-.post-list-title { font-family: var(--font-ui); font-weight: 600; font-size: 1.1em; }
+.post-list-title { font-family: var(--font-heading); font-weight: 600; font-size: 1.1em; }
 .post-list-excerpt { color: var(--text-muted); font-size: 0.95em; margin: 6px 0 0; }
 
 /* single post */
 .post-meta {
-  font-family: var(--font-ui);
   font-size: 13px;
   color: var(--text-muted);
   text-transform: uppercase;
@@ -178,14 +211,14 @@ img, svg { max-width: 100%; height: auto; }
 }
 .tag {
   background: var(--accent-soft);
-  color: var(--accent);
-  padding: 3px 9px;
+  color: var(--accent-strong);
+  padding: 3px 10px;
   border-radius: 20px;
   font-size: 11px;
+  font-weight: 600;
   margin-right: 6px;
 }
 .post-subtitle {
-  font-family: var(--font-ui);
   color: var(--text-muted);
   font-size: 1.05em;
 }
@@ -193,22 +226,20 @@ img, svg { max-width: 100%; height: auto; }
   margin-top: 3em;
   padding-top: 1.2em;
   border-top: 1px solid var(--border);
-  font-family: var(--font-ui);
   font-size: 15px;
 }
 
 /* diagrams */
 .diagram {
-  background: var(--bg-raised);
+  background: var(--bg-sunken);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 24px;
   margin: 1.6em 0;
 }
 .diagram svg text { fill: var(--text); font-family: var(--font-ui); }
 .diagram svg .muted { fill: var(--text-muted); }
 .diagram-caption {
-  font-family: var(--font-ui);
   font-size: 13px;
   color: var(--text-muted);
   text-align: center;
@@ -218,14 +249,28 @@ img, svg { max-width: 100%; height: auto; }
 /* callouts */
 .callout {
   background: var(--accent-soft);
-  border-radius: 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
   padding: 14px 18px;
-  font-family: var(--font-ui);
   font-size: 0.9em;
   margin: 1.6em 0;
 }
+.callout code { background: rgba(0,0,0,0.06); }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.4em 0;
+  font-size: 0.92em;
+}
+th, td {
+  text-align: left;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border);
+}
+th { font-family: var(--font-heading); font-weight: 600; color: var(--text-muted); font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.03em; }
 
 @media (max-width: 600px) {
-  body { font-size: 17px; }
-  .site-nav a { margin-left: 12px; font-size: 14px; }
+  body { font-size: 16px; }
+  .site-nav a { margin-left: 12px; font-size: 13px; }
 }

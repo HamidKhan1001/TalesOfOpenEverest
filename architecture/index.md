@@ -41,35 +41,35 @@ OpenEverest installs into a Kubernetes cluster and gives you a web UI, a REST AP
       <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
     </marker>
   </defs>
-  <g style="color:#1f5c4a" stroke="currentColor" stroke-width="1.6" fill="none">
+  <g style="color:#0E5FB5" stroke="currentColor" stroke-width="1.6" fill="none">
     <line x1="150" y1="70" x2="150" y2="100" marker-end="url(#arrow1)"/>
     <line x1="490" y1="70" x2="490" y2="100" marker-end="url(#arrow1)"/>
     <line x1="320" y1="160" x2="320" y2="190" marker-end="url(#arrow1)"/>
     <line x1="320" y1="250" x2="320" y2="280" marker-end="url(#arrow1)"/>
     <line x1="320" y1="340" x2="320" y2="370" marker-end="url(#arrow1)"/>
   </g>
-  <g font-family="Inter, sans-serif">
-    <rect x="60" y="10" width="180" height="60" rx="8" fill="none" stroke="#1f5c4a" stroke-width="1.5"/>
+  <g font-family="Roboto, sans-serif">
+    <rect x="60" y="10" width="180" height="60" rx="8" fill="none" stroke="#0E5FB5" stroke-width="1.5"/>
     <text x="150" y="35" text-anchor="middle" font-size="13" font-weight="600">everestctl</text>
     <text x="150" y="53" text-anchor="middle" font-size="11" class="muted">CLI (Cobra)</text>
 
-    <rect x="400" y="10" width="180" height="60" rx="8" fill="none" stroke="#1f5c4a" stroke-width="1.5"/>
+    <rect x="400" y="10" width="180" height="60" rx="8" fill="none" stroke="#0E5FB5" stroke-width="1.5"/>
     <text x="490" y="35" text-anchor="middle" font-size="13" font-weight="600">Web UI</text>
     <text x="490" y="53" text-anchor="middle" font-size="11" class="muted">React + Vite + MUI</text>
 
-    <rect x="140" y="100" width="360" height="60" rx="8" fill="#e5efe9" stroke="#1f5c4a" stroke-width="1.5"/>
+    <rect x="140" y="100" width="360" height="60" rx="8" fill="#E8F3FF" stroke="#0E5FB5" stroke-width="1.5"/>
     <text x="320" y="124" text-anchor="middle" font-size="13" font-weight="600">API Server</text>
     <text x="320" y="142" text-anchor="middle" font-size="11" class="muted">echo · JWT auth · casbin RBAC · request validation</text>
 
-    <rect x="140" y="190" width="360" height="60" rx="8" fill="none" stroke="#1f5c4a" stroke-width="1.5"/>
+    <rect x="140" y="190" width="360" height="60" rx="8" fill="none" stroke="#0E5FB5" stroke-width="1.5"/>
     <text x="320" y="214" text-anchor="middle" font-size="13" font-weight="600">Kubernetes API server</text>
     <text x="320" y="232" text-anchor="middle" font-size="11" class="muted">the cluster's source of truth</text>
 
-    <rect x="140" y="280" width="360" height="60" rx="8" fill="#e5efe9" stroke="#1f5c4a" stroke-width="1.5"/>
+    <rect x="140" y="280" width="360" height="60" rx="8" fill="#E8F3FF" stroke="#0E5FB5" stroke-width="1.5"/>
     <text x="320" y="304" text-anchor="middle" font-size="13" font-weight="600">Controller Manager</text>
     <text x="320" y="322" text-anchor="middle" font-size="11" class="muted">controller-runtime · watches CRDs, reconciles state</text>
 
-    <rect x="90" y="370" width="460" height="80" rx="8" fill="none" stroke="#1f5c4a" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <rect x="90" y="370" width="460" height="80" rx="8" fill="none" stroke="#0E5FB5" stroke-width="1.5" stroke-dasharray="4 3"/>
     <text x="320" y="398" text-anchor="middle" font-size="13" font-weight="600">Real cluster resources</text>
     <text x="320" y="418" text-anchor="middle" font-size="11" class="muted">Jobs that run backups/restores, Pods for the database itself,</text>
     <text x="320" y="434" text-anchor="middle" font-size="11" class="muted">Secrets, RBAC objects created on your behalf</text>
@@ -97,22 +97,22 @@ Every API request passes through three handlers, each implementing the same smal
       <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
     </marker>
   </defs>
-  <g style="color:#1f5c4a" stroke="currentColor" stroke-width="1.6" fill="none">
+  <g style="color:#0E5FB5" stroke="currentColor" stroke-width="1.6" fill="none">
     <line x1="10" y1="70" x2="45" y2="70" marker-end="url(#arrow2)"/>
     <line x1="215" y1="70" x2="250" y2="70" marker-end="url(#arrow2)"/>
     <line x1="420" y1="70" x2="455" y2="70" marker-end="url(#arrow2)"/>
     <line x1="625" y1="70" x2="630" y2="70" marker-end="url(#arrow2)"/>
   </g>
-  <g font-family="Inter, sans-serif">
-    <rect x="45" y="35" width="170" height="70" rx="8" fill="none" stroke="#1f5c4a" stroke-width="1.5"/>
+  <g font-family="Roboto, sans-serif">
+    <rect x="45" y="35" width="170" height="70" rx="8" fill="none" stroke="#0E5FB5" stroke-width="1.5"/>
     <text x="130" y="65" text-anchor="middle" font-size="13" font-weight="600">Validation</text>
     <text x="130" y="83" text-anchor="middle" font-size="11" class="muted">is this request well-formed?</text>
 
-    <rect x="250" y="35" width="170" height="70" rx="8" fill="none" stroke="#1f5c4a" stroke-width="1.5"/>
+    <rect x="250" y="35" width="170" height="70" rx="8" fill="none" stroke="#0E5FB5" stroke-width="1.5"/>
     <text x="335" y="65" text-anchor="middle" font-size="13" font-weight="600">RBAC (casbin)</text>
     <text x="335" y="83" text-anchor="middle" font-size="11" class="muted">is this user allowed to do it?</text>
 
-    <rect x="455" y="35" width="170" height="70" rx="8" fill="#e5efe9" stroke="#1f5c4a" stroke-width="1.5"/>
+    <rect x="455" y="35" width="170" height="70" rx="8" fill="#E8F3FF" stroke="#0E5FB5" stroke-width="1.5"/>
     <text x="540" y="65" text-anchor="middle" font-size="13" font-weight="600">Kubernetes handler</text>
     <text x="540" y="83" text-anchor="middle" font-size="11" class="muted">actually talks to the cluster</text>
   </g>
