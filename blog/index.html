@@ -4,16 +4,15 @@ title: Blog
 permalink: /blog/
 ---
 <div class="hero">
-  <p class="kicker">In order, no skipping the messy parts</p>
+  <span class="kicker">no skipping the parts that make me look bad</span>
   <h1>Blog</h1>
 </div>
 
 <ul class="post-list">
   {% for post in site.posts %}
   <li>
+    <span class="post-list-date">{{ post.date | date: "%b %d" }}</span>
     <a href="{{ post.url | relative_url }}" class="post-list-title">{{ post.title }}</a>
-    <span class="post-list-date">{{ post.date | date: "%B %-d, %Y" }}</span>
-    <p class="post-list-excerpt">{{ post.excerpt | strip_html | truncatewords: 32 }}</p>
   </li>
   {% endfor %}
 </ul>

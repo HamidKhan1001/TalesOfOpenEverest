@@ -1,276 +1,219 @@
-/* Palette and type lifted from OpenEverest's own MUI theme
-   (ui/packages/design/src/themes/{base,everest}) so this site
-   reads as a companion to the project, not a random blog. */
 :root {
-  --bg: #ffffff;
-  --bg-raised: #ffffff;
-  --bg-sunken: #f0f1f4;
-  --text: #2c323e;
-  --text-muted: rgba(44, 50, 62, 0.72);
-  --border: rgba(44, 50, 62, 0.25);
-  --accent: #0e5fb5;
-  --accent-strong: #0b4a8c;
-  --accent-soft: #e8f3ff;
-  --success: #00745b;
-  --code-bg: #f0f1f4;
-  --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-ui: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --bg: #faf7f1;
+  --text: #1c1a17;
+  --text-muted: #6b655c;
+  --border: #ddd6c9;
+  --accent: #a8431e;
+  --code-bg: #f0ebe0;
+  --font-head: 'Fraunces', Georgia, serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #3a4151;
-    --bg-raised: #3a4151;
-    --bg-sunken: #2c323e;
-    --text: #fbfbfb;
-    --text-muted: rgba(251, 251, 251, 0.72);
-    --border: rgba(209, 213, 222, 0.25);
-    --accent: #62aeff;
-    --accent-strong: #1486ff;
-    --accent-soft: rgba(20, 134, 255, 0.14);
-    --success: #00a489;
-    --code-bg: #2c323e;
+    --bg: #17150f;
+    --text: #ece7dc;
+    --text-muted: #94897a;
+    --border: #35301f;
+    --accent: #e0703f;
+    --code-bg: #211d14;
   }
 }
 
 * { box-sizing: border-box; }
 
-html { -webkit-text-size-adjust: 100%; }
-
 body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: var(--font-ui);
-  font-size: 17px;
-  line-height: 1.65;
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.6;
 }
 
-.wrap {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
+.wrap { max-width: 700px; margin: 0 auto; padding: 0 20px; }
 
-a { color: var(--accent); text-decoration-thickness: 1px; }
-a:hover { color: var(--accent-strong); }
+a { color: var(--text); text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { color: var(--accent); }
 
-/* header */
-.site-header {
-  border-bottom: 1px solid var(--border);
-  padding: 20px 0;
-}
+/* header, just words, no logo-badge, no nav pills */
+.site-header { padding: 28px 0 20px; }
 .site-header .wrap {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 6px 20px;
 }
 .site-title {
   display: flex;
   align-items: center;
-  gap: 9px;
-  font-family: var(--font-heading);
+  gap: 8px;
+  font-family: var(--font-head);
   font-weight: 600;
-  font-size: 17px;
+  font-style: italic;
+  font-size: 20px;
   color: var(--text);
   text-decoration: none;
 }
-.site-title img { width: 24px; height: 24px; border-radius: 6px; }
-.site-title span { color: var(--accent); }
+.site-title img { width: 18px; height: 18px; opacity: 0.75; }
+.site-nav { font-family: var(--font-mono); font-size: 13px; }
 .site-nav a {
   color: var(--text-muted);
   text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  margin-left: 22px;
+  margin-left: 16px;
 }
 .site-nav a:first-child { margin-left: 0; }
 .site-nav a:hover { color: var(--accent); }
 
-/* footer */
+/* footer, plain */
 .site-footer {
-  border-top: 1px solid var(--border);
-  margin-top: 80px;
-  padding: 28px 0 50px;
-  font-size: 14px;
+  margin-top: 90px;
+  padding: 22px 0 60px;
+  font-family: var(--font-mono);
+  font-size: 13px;
   color: var(--text-muted);
+  border-top: 1px dashed var(--border);
 }
-.footer-links a { margin-right: 16px; color: var(--text-muted); }
+.footer-links a { margin-right: 14px; color: var(--text-muted); }
 .footer-links a:hover { color: var(--accent); }
 
-/* page/content */
-.page { padding: 52px 0; }
+.page { padding: 30px 0 40px; }
 
-h1, h2, h3 {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  line-height: 1.25;
-  color: var(--text);
-}
-h1 { font-size: 2em; margin: 0 0 0.3em; }
-h2 { font-size: 1.35em; margin: 1.6em 0 0.6em; }
+h1, h2, h3 { font-family: var(--font-head); line-height: 1.2; color: var(--text); font-weight: 600; }
+h1 { font-size: 2.3em; margin: 0.1em 0 0.35em; }
+h2 { font-size: 1.5em; margin: 1.7em 0 0.5em; font-style: italic; }
 h3 {
+  font-family: var(--font-mono);
+  font-style: normal;
   margin: 1.4em 0 0.5em;
   color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: 0.8em;
-  font-weight: 700;
+  font-size: 0.75em;
+  text-transform: lowercase;
+  letter-spacing: 0.03em;
 }
 
-p { margin: 0 0 1.1em; }
+p { margin: 0 0 1.15em; }
 
 code {
   font-family: var(--font-mono);
   background: var(--code-bg);
-  padding: 0.15em 0.4em;
-  border-radius: 4px;
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
   font-size: 0.85em;
 }
 pre {
   background: var(--code-bg);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 16px 18px;
+  border-left: 3px solid var(--border);
+  border-radius: 0;
+  padding: 14px 16px;
   overflow-x: auto;
   font-family: var(--font-mono);
-  font-size: 0.85em;
+  font-size: 0.82em;
   line-height: 1.55;
 }
 pre code { background: none; padding: 0; }
 
 blockquote {
   margin: 1.4em 0;
-  padding: 2px 0 2px 18px;
-  border-left: 3px solid var(--accent);
+  padding: 0 0 0 16px;
+  border-left: 2px solid var(--accent);
   color: var(--text-muted);
+  font-style: italic;
 }
 
-ul, ol { padding-left: 1.3em; }
+ul, ol { padding-left: 1.2em; }
 li { margin-bottom: 0.4em; }
 
-hr { border: none; border-top: 1px solid var(--border); margin: 2.5em 0; }
+hr { border: none; border-top: 1px dashed var(--border); margin: 2.4em 0; }
 
 img, svg { max-width: 100%; height: auto; }
 
-/* buttons/links used as ctas, matching OpenEverest's pill buttons */
-.btn {
-  display: inline-block;
-  font-family: var(--font-heading);
-  font-weight: 500;
-  font-size: 14px;
-  padding: 9px 18px;
-  border-radius: 128px;
-  border: 2px solid var(--accent);
-  color: var(--accent);
-  text-decoration: none;
-}
-.btn:hover { background: var(--accent-soft); color: var(--accent-strong); }
-
-/* home */
-.hero { margin-bottom: 3em; }
+/* no card, just a plain divider between title and body */
+.hero { margin-bottom: 2em; }
 .hero .kicker {
-  font-family: var(--font-heading);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  font-family: var(--font-mono);
   font-size: 12px;
-  color: var(--accent);
-  font-weight: 700;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 10px;
 }
 
-/* post list */
+/* post list = a log, not cards */
 .post-list { list-style: none; padding: 0; margin: 0; }
 .post-list li {
-  padding: 20px 0;
-  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 16px;
+  padding: 11px 0;
+  border-bottom: 1px dashed var(--border);
+  align-items: baseline;
 }
 .post-list li:first-child { padding-top: 0; }
 .post-list-date {
+  font-family: var(--font-mono);
   font-size: 13px;
   color: var(--text-muted);
-  display: block;
-  margin-bottom: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
-.post-list-title { font-family: var(--font-heading); font-weight: 600; font-size: 1.1em; }
-.post-list-excerpt { color: var(--text-muted); font-size: 0.95em; margin: 6px 0 0; }
+.post-list-title { font-weight: 500; }
+.post-list-excerpt { display: none; }
 
 /* single post */
 .post-meta {
+  font-family: var(--font-mono);
   font-size: 13px;
   color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
   display: flex;
-  gap: 12px;
+  gap: 10px;
   align-items: center;
   flex-wrap: wrap;
-  margin-bottom: 0.6em;
+  margin-bottom: 0.5em;
 }
 .tag {
-  background: var(--accent-soft);
-  color: var(--accent-strong);
-  padding: 3px 10px;
-  border-radius: 20px;
-  font-size: 11px;
-  font-weight: 600;
-  margin-right: 6px;
+  color: var(--text-muted);
 }
+.tag::before { content: "#"; }
 .post-subtitle {
   color: var(--text-muted);
+  font-style: italic;
   font-size: 1.05em;
 }
 .post-footer {
   margin-top: 3em;
-  padding-top: 1.2em;
-  border-top: 1px solid var(--border);
-  font-size: 15px;
+  padding-top: 1em;
+  border-top: 1px dashed var(--border);
+  font-family: var(--font-mono);
+  font-size: 14px;
 }
 
-/* diagrams */
-.diagram {
-  background: var(--bg-sunken);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 24px;
-  margin: 1.6em 0;
-}
-.diagram svg text { fill: var(--text); font-family: var(--font-ui); }
+/* diagrams, no card box, just the drawing on the page */
+.diagram { margin: 1.8em 0; }
+.diagram svg text { fill: var(--text); font-family: var(--font-mono); }
 .diagram svg .muted { fill: var(--text-muted); }
 .diagram-caption {
-  font-size: 13px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
   color: var(--text-muted);
-  text-align: center;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
-/* callouts */
+/* callouts become a plain marked paragraph, not a box */
 .callout {
-  background: var(--accent-soft);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  padding: 14px 18px;
-  font-size: 0.9em;
+  padding: 0 0 0 16px;
+  border-left: 2px solid var(--text-muted);
+  font-size: 0.95em;
   margin: 1.6em 0;
 }
-.callout code { background: rgba(0,0,0,0.06); }
+.callout code { background: var(--code-bg); }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1.4em 0;
-  font-size: 0.92em;
-}
-th, td {
-  text-align: left;
-  padding: 9px 12px;
-  border-bottom: 1px solid var(--border);
-}
-th { font-family: var(--font-heading); font-weight: 600; color: var(--text-muted); font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.03em; }
+table { width: 100%; border-collapse: collapse; margin: 1.4em 0; font-size: 0.92em; }
+th, td { text-align: left; padding: 7px 10px 7px 0; border-bottom: 1px dashed var(--border); }
+th { font-family: var(--font-mono); font-weight: 500; color: var(--text-muted); font-size: 0.85em; }
 
 @media (max-width: 600px) {
-  body { font-size: 16px; }
-  .site-nav a { margin-left: 12px; font-size: 13px; }
+  body { font-size: 16.5px; }
+  .site-nav a { margin-left: 10px; }
+  .post-list li { flex-direction: column; gap: 2px; }
 }

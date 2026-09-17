@@ -4,20 +4,18 @@ title: Home
 ---
 
 <div class="hero">
-  <p class="kicker">A learning log, not a highlight reel</p>
+  <span class="kicker">not a highlight reel, just what actually happened</span>
   <h1>Tales of OpenEverest</h1>
-  <p>I'm learning Go by actually contributing to a real open source project: <a href="https://github.com/openeverest/openeverest" target="_blank" rel="noopener">OpenEverest</a>, a Kubernetes-native database platform. This site is where I write down what I find, what I get wrong, and how each issue actually gets fixed, before it gets cleaned up in my memory into a nicer story than what happened.</p>
+  <p>I'm learning Go by actually contributing to a real project. Not a course, not a tutorial series, an actual codebase called <a href="https://github.com/openeverest/openeverest" target="_blank" rel="noopener">OpenEverest</a> with real maintainers who review my stuff and tell me when I'm wrong. This is where I'm writing all of it down as it happens, before my memory cleans it up into a better story than what actually went down.</p>
 </div>
 
-## What this is
+## what's actually here
 
-Every post here is tied to something real: an issue I picked up, a pull request I opened, a review comment that made me rewrite something. No tutorials copied from docs, no "10 things I learned" filler. If I didn't actually do it, it's not on here.
+- **[blog](/TalesOfOpenEverest/blog/)**: the issues, the PRs, the review comments that made me rewrite something, in the order they happened.
+- **[about openeverest](/TalesOfOpenEverest/about/)**: what this project even is, in case you land here first.
+- **[architecture](/TalesOfOpenEverest/architecture/)**: my own notes on how it's built, from reading the actual code, corrected as I understand more.
+- **[learning go](/TalesOfOpenEverest/learning-go/)**: concepts I write up only after I actually needed them for something. no generic "go for beginners" filler.
 
-- **[About OpenEverest](/TalesOfOpenEverest/about/)**: what the project actually is, the problem it solves, and what it's built with.
-- **[Blog](/TalesOfOpenEverest/blog/)**: the PRs, the reviews, the mistakes, in order.
-- **[Architecture](/TalesOfOpenEverest/architecture/)**: my own map of how OpenEverest is actually built, with diagrams, written as I understand each piece, not copied from the docs.
-- **[Learning Go](/TalesOfOpenEverest/learning-go/)**: the Go concepts I had to actually understand to make a change, explained the way I wish someone had explained them to me.
+## why openeverest specifically
 
-## Why OpenEverest
-
-It's a real, actively maintained Kubernetes operator and platform with a proper review process. That's the point. I wanted a codebase big enough that I couldn't fake understanding it, and maintainers who'd actually push back on a PR that didn't hold up.
+I wanted a codebase big enough that I couldn't fake my way through it, and maintainers who'd actually push back if a PR didn't hold up. Got both. First fix I shipped got two rounds of review before it was right.
