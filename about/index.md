@@ -95,6 +95,12 @@ Honestly the part I find most interesting, and it's newer than the rest of this.
 
 Basically the same idea Kubernetes uses for CRDs, one layer up: don't hardcode every feature, give people a defined way to bolt their own on.
 
+## it's not actually one repo
+
+Took me a while to notice this, I'd been treating `openeverest/openeverest` as "the project" because it's the one with the CONTRIBUTING.md I'd read. It's one piece. The org has 30-plus repos: `hub` (where you discover installable providers and plugins), `helm-charts`, a separate `provider-*` repo for every database engine (Postgres, MongoDB, MySQL, ClickHouse, Milvus, and more), a family of `plugin-*` repos, the website, even a homebrew tap for the CLI. Each provider repo ships its own Tiltfile, its own CI, sometimes its own contribution norms, some don't even run the same `/assign` bot the core repo does.
+
+The `Provider` and `Plugin` CRDs from the diagram above are basically the technical expression of this: the core repo doesn't know or care what's in `provider-percona-postgresql` at compile time, it just knows how to install and talk to something that satisfies the provider contract. The org structure mirrors the plugin architecture. That's either a nice bit of consistency or just what naturally happens when you build a plugin system and then actually use it for your own first-party integrations too.
+
 ## what it's built with
 
 - **backend**: Go 1.26. API server runs on [echo](https://echo.labstack.com/). Controllers use [controller-runtime](https://github.com/kubernetes-sigs/controller-runtime), the standard for writing Kubernetes operators. Permissions go through [casbin](https://casbin.org/). CLI is built with [Cobra](https://github.com/spf13/cobra).
