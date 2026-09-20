@@ -2,6 +2,8 @@
 layout: default
 title: Blog
 permalink: /blog/
+pagination:
+  enabled: true
 ---
 <div class="hero">
   <span class="kicker">no skipping the parts that make me look bad</span>
@@ -9,10 +11,26 @@ permalink: /blog/
 </div>
 
 <ul class="post-list">
-  {% for post in site.posts %}
+  {% for post in paginator.docs %}
   <li>
     <span class="post-list-date">{{ post.date | date: "%b %d" }}</span>
     <a href="{{ post.url | relative_url }}" class="post-list-title">{{ post.title }}</a>
   </li>
   {% endfor %}
 </ul>
+
+{% if paginator.total_pages > 1 %}
+<nav class="pager">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | relative_url }}">&larr; newer</a>
+  {% else %}
+    <span class="pager-disabled">&larr; newer</span>
+  {% endif %}
+  <span class="pager-status">page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | relative_url }}">older &rarr;</a>
+  {% else %}
+    <span class="pager-disabled">older &rarr;</span>
+  {% endif %}
+</nav>
+{% endif %}

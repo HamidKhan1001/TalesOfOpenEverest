@@ -2,6 +2,7 @@
 title: "Finding a real bug by checking the whole map"
 subtitle: "OpenEverest isn't one repo. Turns out that matters when you're hunting for something small to fix."
 date: 2026-09-20
+permalink: /blog/2026/09/20/finding-a-real-bug-by-checking-the-whole-map/
 tags: [open-source, go, debugging]
 ---
 

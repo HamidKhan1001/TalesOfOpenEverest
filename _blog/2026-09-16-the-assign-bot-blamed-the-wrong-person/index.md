@@ -2,6 +2,7 @@
 title: "The assign bot was blaming the wrong person"
 subtitle: "My first real review cycle on OpenEverest, and the git mistake that almost held it up"
 date: 2026-09-16
+permalink: /blog/2026/09/16/the-assign-bot-blamed-the-wrong-person/
 tags: [open-source, github-actions, code-review]
 pr_url: https://github.com/openeverest/openeverest/pull/3118
 ---

@@ -16,16 +16,30 @@ kramdown:
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-paginate-v2
 
 collections:
-  posts:
+  blog:
     output: true
-    permalink: /blog/:year/:month/:day/:title/
+
+pagination:
+  enabled: true
+  collection: blog
+  per_page: 5
+  sort_field: date
+  sort_reverse: true
+  permalink: /blog/page/:num/
+  title: ":title, page :num"
+
+feed:
+  collections:
+    blog:
+      output: true
 
 defaults:
   - scope:
       path: ""
-      type: posts
+      type: blog
     values:
       layout: post
   - scope:

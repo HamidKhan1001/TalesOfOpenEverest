@@ -2,6 +2,7 @@
 title: "Running it for real"
 subtitle: "What actually happens when you stop reading the dev setup doc and start running it"
 date: 2026-09-20
+permalink: /blog/2026/09/20/running-it-for-real/
 tags: [open-source, debugging, contributing]
 pr_url: https://github.com/openeverest/openeverest/pull/3203
 ---

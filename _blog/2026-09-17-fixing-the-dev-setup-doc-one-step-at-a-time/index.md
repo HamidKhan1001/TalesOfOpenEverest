@@ -2,6 +2,7 @@
 title: "Fixing the dev setup doc, one step at a time"
 subtitle: "Why I'm opening this one as a draft, and a disclosure I'm adding going forward"
 date: 2026-09-17
+permalink: /blog/2026/09/17/fixing-the-dev-setup-doc-one-step-at-a-time/
 tags: [open-source, documentation, contributing]
 pr_url: https://github.com/openeverest/openeverest/pull/3203
 ---
