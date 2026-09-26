@@ -86,6 +86,15 @@ Here's the part that took me the longest to get: OpenEverest doesn't really have
 
 If you know v1, the big change in v2 is right at the top of that diagram. v1 had one resource, `DatabaseCluster`, that assumed a small fixed list of supported databases. v2 swapped that for the generic `Instance` plus a pluggable `Provider`, so new engines can get added without touching core.
 
+## a Backup isn't always handled the same way
+
+Didn't notice this until I was fixing an actual bug in one. Every `Backup` references a cluster-scoped `BackupClass`, and that class declares an `executionMode` that decides who's actually driving the backup:
+
+- **Job**: the core's own in-cluster job controller reconciles it directly, reading the `Backup` object itself and running the work.
+- **ProviderManaged**: the core steps back and hands it to the provider. The `Instance` has to explicitly register which `BackupStorage`s it's willing to use (`spec.backup.storages`), and from then on the provider's own reconciler watches the `Backup`, talks to its database engine's operator, and writes the real status back, including, this being the actual bug, the real start and completion time, not a guess.
+
+Same CRD either way, from the outside a `Backup` looks identical. The execution mode is what decides whether core or the provider is the one actually doing the work and reporting on it.
+
 ## the plugin system
 
 Honestly the part I find most interesting, and it's newer than the rest of this. OpenEverest lets you extend it without touching core code, on both ends:

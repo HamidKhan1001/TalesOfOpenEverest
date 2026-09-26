@@ -70,4 +70,22 @@ started := metav1.NewTime(metav1.Now().Truncate(time.Second))
 
 Small thing, but it's the kind of small thing that would have had me doubting a correct fix for the wrong reason if I hadn't chased down exactly why the numbers didn't match instead of just fudging the assertion.
 
+## why the field is a pointer, not just a time.Time
+
+Same fix, different lesson. The field I was populating is typed `*metav1.Time`, a pointer, not `metav1.Time` plain. First instinct was that this was just Kubernetes being Kubernetes. It's not incidental, it's the only way the type can honestly represent "this hasn't happened yet."
+
+A backup that's still running has no completion time. If the field were a plain `metav1.Time`, there'd be no way to write that down, the zero value of a struct still *is* a value, `0001-01-01T00:00:00Z`, and nothing stops you from serializing it and someone reading it as a real, if weird, timestamp. A `nil` pointer can't be confused for a date that far in the past. It can only mean "not set." That's the whole reason `StartedAt` and `CompletedAt` are both pointers here: the difference between "hasn't happened" and "happened at a specific, knowable moment" has to be representable, and only one of those two field shapes actually can.
+
+Once I saw it that way, a pattern clicked that I'd been vaguely noticing without naming: in Kubernetes API types, a pointer to a small value almost always means "this is optional and its absence is meaningful," not "this is big enough to want to avoid copying it."
+
+## reading the vendored source instead of guessing the field name
+
+Needed the exact field names on `PerconaServerMongoDBBackupStatus`, the actual struct the real operator uses, not our own CRD. Didn't guess, and didn't rely on documentation either, both are one refactor away from being wrong. Found the vendored copy in Go's own module cache and read the struct directly:
+
+```sh
+go list -m -f '{{.Dir}}' github.com/percona/percona-server-mongodb-operator
+```
+
+That command prints the exact on-disk path Go resolved for that dependency at the version this project actually pins, then it's just `grep` or an editor from there. Works for any Go dependency, not just this one, and it's more trustworthy than any comment or doc page, because it's literally the compiler's own source of truth for what that type looks like right now, not what it looked like when someone last wrote it down.
+
 Adding to this as I actually run into the next thing, not before.
