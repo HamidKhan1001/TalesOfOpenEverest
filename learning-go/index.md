@@ -52,4 +52,22 @@ func decodeJWTSegment(seg string) ([]byte, error) {
 
 Deleted it, deleted the now-unused `encoding/base64` import (that one, the compiler does catch), rebuilt, and only trusted it once I'd actually run the binary against a live server and watched it authenticate successfully in the logs. Reading the diff and believing it compiles is not the same as knowing it works.
 
+## a fake client, and a test that lies if you let it
+
+Fixing a bug in `provider-percona-server-mongodb` where a backup's completion time was faked instead of read from the real operator status. First time writing a test that needed a Kubernetes object in it, and controller-runtime ships exactly the tool for that: `sigs.k8s.io/controller-runtime/pkg/client/fake`. Build a scheme, register the CRDs it needs to know about, hand it some seed objects, and it behaves like a real API server for anything your code does through the normal `client.Client` interface, no cluster required.
+
+```go
+fakeClient := fake.NewClientBuilder().WithScheme(scheme).WithObjects(objs...).Build()
+```
+
+The test passed first try, which should have made me suspicious rather than satisfied. A test that passes doesn't tell you it would fail if the bug came back, only that it doesn't fail right now. So I went and put the actual bug back, temporarily, by hand, reran the exact same test, and watched it fail with the wrong timestamp, the real proof that it was checking something instead of just running through motions. Then undid that and moved on.
+
+Along the way, a genuinely surprising gotcha: two `metav1.Time` values, one before my code touched the fake client and one after, weren't equal, down to the nanosecond, they were only equal to the *second*. The fake client round-trips objects through the same wire serialization a real API server would, and Kubernetes' time format is RFC3339, which has no sub-second resolution. My code was fine; my test was comparing a value with nanoseconds against one that had them stripped in transit. Fixed by truncating my expected value the same way before comparing:
+
+```go
+started := metav1.NewTime(metav1.Now().Truncate(time.Second))
+```
+
+Small thing, but it's the kind of small thing that would have had me doubting a correct fix for the wrong reason if I hadn't chased down exactly why the numbers didn't match instead of just fudging the assertion.
+
 Adding to this as I actually run into the next thing, not before.
